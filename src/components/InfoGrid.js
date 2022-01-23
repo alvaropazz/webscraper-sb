@@ -6,7 +6,7 @@ const InfoGrid = (props) => {
   return (
     <InfoGridWraper className="info-grid-wrapper">
       <Row>
-        <Text>{rank}</Text>
+        <Text style={{ fontSize: "40px" }}>{rank}</Text>
         <Text>{title}</Text>
       </Row>
       <Row>
