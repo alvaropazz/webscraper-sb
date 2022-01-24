@@ -10,8 +10,8 @@ const InfoGrid = (props) => {
         <Text>{title}</Text>
       </Row>
       <Row>
-        <Text>{numberComments}</Text>
-        <Text>{points}</Text>
+        <Text>{numberComments ? numberComments + "comments" : "N/A"}</Text>
+        <Text>{points ? points + " points" : "N/A"} </Text>
       </Row>
     </InfoGridWraper>
   );
