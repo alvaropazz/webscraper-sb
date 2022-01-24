@@ -6,12 +6,16 @@ const InfoGrid = (props) => {
   return (
     <InfoGridWraper className="info-grid-wrapper">
       <Row>
-        <Text style={{ fontSize: "40px" }}>{rank}</Text>
-        <Text>{title}</Text>
+        <Text style={{ fontSize: "40px", width: "10%" }}>{rank}</Text>
+        <Text style={{ fontSize: "30px", width: "90%" }}>{title}</Text>
       </Row>
       <Row>
-        <Text>{numberComments ? numberComments + "comments" : "N/A"}</Text>
-        <Text>{points ? points + " points" : "N/A"} </Text>
+        <Text style={{ fontSize: "20px", width: "50%" }}>
+          {numberComments ? numberComments + " comments" : "N/A"}
+        </Text>
+        <Text style={{ fontSize: "20px", width: "50%" }}>
+          {points ? points + " points" : "N/A"}{" "}
+        </Text>
       </Row>
     </InfoGridWraper>
   );

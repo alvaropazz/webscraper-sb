@@ -26,7 +26,6 @@ const App = () => {
             const html = response.data;
             const $ = cheerio.load(html);
             const top30Data = [];
-
             $(
               `body > center > table > tbody > tr > td > table > tbody > tr`
             ).each((_idx, el) => {
@@ -44,7 +43,8 @@ const App = () => {
                   .find(".subtext a:contains('comment')")
                   .text()
                   .toString()
-                  .split("c")[0],
+                  .split("c")[0]
+                  .trimEnd(),
               });
             });
             setTop(top30Data.filter((el) => el.rank !== ""));
@@ -82,26 +82,33 @@ const App = () => {
   };
 
   return (
-    <AppWrapper className="App" data-test-id="App">
+    <AppWrapper className="App" data-testid="App">
       <MainNav>
-        <Title>Y Combinator Top 30</Title>
-        <Container>
+        <Title>Y Combinator Top News</Title>
+        <div>
           <FilterByTitle htmlFor="filter-option">
             Choose an option:
           </FilterByTitle>
 
-          <select name="filter-option" id="filter-option" onChange={onChange}>
-            <FilterByOption value="reset">All</FilterByOption>
-            <FilterByOption value="numberComments">
+          <select
+            name="filter-option"
+            id="filter-option"
+            onChange={onChange}
+            data-testid="select-filter"
+          >
+            <option value="reset" data-testid="select-option">
+              All
+            </option>
+            <option value="numberComments" data-testid="select-option">
               previous entries with more than five words in the title ordered by
               the number of comments first
-            </FilterByOption>
-            <FilterByOption value="points">
+            </option>
+            <option value="points" data-testid="select-option">
               previous entries with less than or equal to five words in the
               title ordered by points
-            </FilterByOption>
+            </option>
           </select>
-        </Container>
+        </div>
       </MainNav>
 
       {top30 &&

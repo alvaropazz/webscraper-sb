@@ -8,6 +8,8 @@ export const MainButton = styled.button`
 export const InfoGridWraper = styled.div`
   diaplay: flex;
   flex-direction: column;
+  margin: 10px 0;
+  border: 0.5px solid black;
 `;
 
 export const Row = styled.div`
@@ -18,4 +20,5 @@ export const Row = styled.div`
 export const Text = styled.p`
   border: 0.5px solid black;
   margin: 0;
+  padding: 5px;
 `;
